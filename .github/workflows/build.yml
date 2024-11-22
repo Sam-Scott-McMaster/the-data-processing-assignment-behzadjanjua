@@ -1,0 +1,37 @@
+name: convert - Build and Test Workflow
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build_convert_executable:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Build Clean Executable
+        run: make clean
+
+      - name: Upload Clean Executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: clean
+          path: ./clean
+
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Compile Test Build and Run Tests
+        run: make clean; ./clean < wbcd.txt > cleaned_wbcd.txt 
+
+      - name: Upload Test Output
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: Cleaned WBCD Text
+          path: ./cleaned_wbcd.txt
