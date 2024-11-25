@@ -33,5 +33,5 @@ jobs:
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
-          name: Cleaned WBCD Text
+          name:  cleaned_wbcd.txt
           path: ./cleaned_wbcd.txt
