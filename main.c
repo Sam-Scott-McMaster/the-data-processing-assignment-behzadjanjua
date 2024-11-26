@@ -23,7 +23,8 @@
  ********************************/
 int main(int argc, char *argv[])
 {
-    int rows, cols;             // Number of rows and columns in the dataset
+    int rows;                   // Number of rows in the dataset
+    int cols;                   // Number of columns in the dataset
     int new_rows;               // Updated number of rows (after cleaning)
     float *data = NULL;         // Pointer to the original dataset
     float *cleaned_data = NULL; // Pointer to the cleaned dataset
