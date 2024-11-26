@@ -19,6 +19,9 @@
  ********************************/
 void output_data(float *data, int rows, int cols)
 {
+    // Print the number of rows and columns as the first line
+    printf("%d %d\n", rows, cols);
+
     // Loop through each row
     for (int i = 0; i < rows; i++)
     {
